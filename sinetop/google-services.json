@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "266351067671",
+    "firebase_url": "https://sinetop.firebaseio.com",
+    "project_id": "sinetop",
+    "storage_bucket": "sinetop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266351067671:android:8a85323edb1dffcf8ed252",
+        "android_client_info": {
+          "package_name": "com.infoskillstechnology.sinetop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266351067671-00h8mnf72jvcnniki9vqm655nuqs2hts.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2-QLpL9bGyr_ZfdI6m5ZWegZefCUTYEo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266351067671-00h8mnf72jvcnniki9vqm655nuqs2hts.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
