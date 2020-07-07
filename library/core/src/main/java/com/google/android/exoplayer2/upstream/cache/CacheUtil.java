@@ -30,11 +30,21 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.NavigableSet;
 import java.util.concurrent.atomic.AtomicBoolean;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Caching related utility methods.
  */
 public final class CacheUtil {
+
+  public static void cache(@org.jetbrains.annotations.NotNull DataSpec dataSpec,
+      @NotNull Cache cache,
+      @org.jetbrains.annotations.Nullable CacheKeyFactory defaultCacheKeyFactory,
+      @org.jetbrains.annotations.NotNull DataSource upstream,
+      @org.jetbrains.annotations.NotNull CacheUtil.ProgressListener progressListener,
+      @org.jetbrains.annotations.Nullable Void nothing) {
+
+  }
 
   /** Receives progress updates during cache operations. */
   public interface ProgressListener {

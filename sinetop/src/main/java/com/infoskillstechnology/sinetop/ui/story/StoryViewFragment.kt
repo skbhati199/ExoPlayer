@@ -7,7 +7,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.infoskillstechnology.sinetop.R
-import com.infoskillstechnology.sinetop.app.MyApp
+import com.infoskillstechnology.sinetop.app.SineTopApp
 import com.infoskillstechnology.sinetop.model.StoriesDataModel
 import com.infoskillstechnology.sinetop.ui.main.viewmodel.MainViewModel
 import com.infoskillstechnology.sinetop.utils.*
@@ -27,7 +27,7 @@ class StoryViewFragment : Fragment(R.layout.fragment_story_view) {
 
     private var simplePlayer: SimpleExoPlayer? = null
     private var cacheDataSourceFactory: CacheDataSourceFactory? = null
-    private val simpleCache = MyApp.simpleCache
+    private val simpleCache = SineTopApp.simpleCache
     private var toPlayVideoPosition: Int = -1
 
     companion object {
@@ -84,19 +84,18 @@ class StoryViewFragment : Fragment(R.layout.fragment_story_view) {
 
     private val playerCallback: Player.EventListener? = object: Player.EventListener {
         override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
-            logError("onPlayerStateChanged playbackState: $playbackState")
         }
 
-        override fun onPlayerError(error: com.google.android.exoplayer2.ExoPlaybackException?) {
+        override fun onPlayerError(error: com.google.android.exoplayer2.ExoPlaybackException) {
             super.onPlayerError(error)
         }
     }
 
     private fun prepareVideoPlayer() {
-        simplePlayer = ExoPlayerFactory.newSimpleInstance(context)
+        simplePlayer = ExoPlayerFactory.newSimpleInstance(requireContext())
         cacheDataSourceFactory = CacheDataSourceFactory(simpleCache,
             DefaultHttpDataSourceFactory(
-                Util.getUserAgent(context,
+                Util.getUserAgent(requireContext(),
                 "exo"))
         )
     }
@@ -118,7 +117,7 @@ class StoryViewFragment : Fragment(R.layout.fragment_story_view) {
         simplePlayer?.prepare(mediaSource, true, true)
         simplePlayer?.repeatMode = Player.REPEAT_MODE_ONE
         simplePlayer?.playWhenReady = true
-        simplePlayer?.addListener(playerCallback)
+        simplePlayer?.addListener(playerCallback!!)
 
         toPlayVideoPosition = -1
     }

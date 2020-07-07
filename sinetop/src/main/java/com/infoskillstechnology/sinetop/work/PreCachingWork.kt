@@ -5,7 +5,7 @@ import android.net.Uri
 import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.infoskillstechnology.sinetop.app.MyApp
+import com.infoskillstechnology.sinetop.app.SineTopApp
 import com.infoskillstechnology.sinetop.utils.Constants
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DataSpec
@@ -25,7 +25,7 @@ class PreCachingService(appContext: Context, params: WorkerParameters) :
     CoroutineWorker(appContext, params) {
     private var cachingJob: Deferred<Unit?>? = null
     private var cacheDataSourceFactory: CacheDataSourceFactory? = null
-    private val simpleCache = MyApp.simpleCache
+    private val simpleCache = SineTopApp.simpleCache
 
 
     override suspend fun doWork(): Result = coroutineScope {
@@ -52,7 +52,7 @@ class PreCachingService(appContext: Context, params: WorkerParameters) :
                     ).createDataSource()
 
                 preloadVideo(dataSpec,
-                    simpleCache,
+                    simpleCache!!,
                     dataSource,
                     CacheUtil.ProgressListener { requestLength: Long, bytesCached: Long, newBytesCached: Long ->
                         val downloadPercentage = (bytesCached * 100.0
@@ -67,10 +67,10 @@ class PreCachingService(appContext: Context, params: WorkerParameters) :
     }
 
     private fun preloadVideo(
-        dataSpec: DataSpec?,
-        cache: Cache?,
-        upstream: DataSource?,
-        progressListener: CacheUtil.ProgressListener?
+        dataSpec: DataSpec,
+        cache: Cache,
+        upstream: DataSource,
+        progressListener: CacheUtil.ProgressListener
     ) {
         Log.d(TAG, "preloadVideo")
         try {

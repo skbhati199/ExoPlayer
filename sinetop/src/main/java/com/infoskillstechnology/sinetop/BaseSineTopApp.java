@@ -23,7 +23,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SineTopApp extends Application {
+public class BaseSineTopApp extends Application {
 
   public final static String TAG = "SineTopApp";
 
