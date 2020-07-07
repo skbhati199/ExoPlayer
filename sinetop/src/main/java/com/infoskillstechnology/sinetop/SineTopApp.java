@@ -35,65 +35,65 @@ public class SineTopApp extends Application {
   public void onCreate() {
     super.onCreate();
 
-    FirebaseRemoteConfig mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
-    mStorageRef = FirebaseStorage.getInstance().getReference();
-
-    // Obtain the FirebaseAnalytics instance.
-    mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-    Bundle bundle = new Bundle();
-    bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "");
-    bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "");
-    bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image");
-    mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
-
-    // Write a message to the database
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("message");
-
-    myRef.setValue("Hello, World!");
-
-    // Read from the database
-    myRef.addValueEventListener(new ValueEventListener() {
-      @Override
-      public void onDataChange(DataSnapshot dataSnapshot) {
-        // This method is called once with the initial value and again
-        // whenever data at this location is updated.
-        String value = dataSnapshot.getValue(String.class);
-        Log.d(TAG, "Value is: " + value);
-      }
-
-      @Override
-      public void onCancelled(DatabaseError error) {
-        // Failed to read value
-        Log.w(TAG, "Failed to read value.", error.toException());
-      }
-    });
-
-
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-    // Create a new user with a first and last name
-    Map<String, Object> user = new HashMap<>();
-    user.put("first", "Ada");
-    user.put("last", "Lovelace");
-    user.put("born", 1815);
-
-// Add a new document with a generated ID
-    db.collection("users")
-        .add(user)
-        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-          @Override
-          public void onSuccess(DocumentReference documentReference) {
-            Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-          }
-        })
-        .addOnFailureListener(new OnFailureListener() {
-          @Override
-          public void onFailure(@NonNull Exception e) {
-            Log.w(TAG, "Error adding document", e);
-          }
-        });
-
+//    FirebaseRemoteConfig mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
+//    mStorageRef = FirebaseStorage.getInstance().getReference();
+//
+//    // Obtain the FirebaseAnalytics instance.
+//    mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+//    Bundle bundle = new Bundle();
+//    bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "");
+//    bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "");
+//    bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image");
+//    mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+//
+//    // Write a message to the database
+//    FirebaseDatabase database = FirebaseDatabase.getInstance();
+//    DatabaseReference myRef = database.getReference("message");
+//
+//    myRef.setValue("Hello, World!");
+//
+//    // Read from the database
+//    myRef.addValueEventListener(new ValueEventListener() {
+//      @Override
+//      public void onDataChange(DataSnapshot dataSnapshot) {
+//        // This method is called once with the initial value and again
+//        // whenever data at this location is updated.
+//        String value = dataSnapshot.getValue(String.class);
+//        Log.d(TAG, "Value is: " + value);
+//      }
+//
+//      @Override
+//      public void onCancelled(DatabaseError error) {
+//        // Failed to read value
+//        Log.w(TAG, "Failed to read value.", error.toException());
+//      }
+//    });
+//
+//
+//    FirebaseFirestore db = FirebaseFirestore.getInstance();
+//
+//    // Create a new user with a first and last name
+//    Map<String, Object> user = new HashMap<>();
+//    user.put("first", "Ada");
+//    user.put("last", "Lovelace");
+//    user.put("born", 1815);
+//
+//// Add a new document with a generated ID
+//    db.collection("users")
+//        .add(user)
+//        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//          @Override
+//          public void onSuccess(DocumentReference documentReference) {
+//            Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+//          }
+//        })
+//        .addOnFailureListener(new OnFailureListener() {
+//          @Override
+//          public void onFailure(@NonNull Exception e) {
+//            Log.w(TAG, "Error adding document", e);
+//          }
+//        });
+//
 
   }
 
