@@ -1,4 +1,4 @@
-package com.infoskillstechnology.sinetop;
+package com.infoskillstechnology.sinetop.app;
 
 import android.app.Application;
 import android.net.Uri;

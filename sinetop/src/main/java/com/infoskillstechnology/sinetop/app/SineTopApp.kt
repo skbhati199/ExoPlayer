@@ -5,7 +5,6 @@ import com.google.android.exoplayer2.database.DatabaseProvider
 import com.google.android.exoplayer2.database.ExoDatabaseProvider
 import com.google.android.exoplayer2.upstream.cache.LeastRecentlyUsedCacheEvictor
 import com.google.android.exoplayer2.upstream.cache.SimpleCache
-import com.infoskillstechnology.sinetop.BaseSineTopApp
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
