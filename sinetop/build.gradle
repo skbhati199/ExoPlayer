@@ -1,8 +1,10 @@
 apply from: '../constants.gradle'
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'com.google.firebase.firebase-perf'
 
@@ -38,16 +40,50 @@ android {
         // This demo app does not have translations.
         disable 'MissingTranslation'
     }
+
+
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.google.android.material:material:1.1.0'
+
+    implementation 'androidx.appcompat:appcompat:1.3.0-alpha01'
+    implementation 'com.google.android.material:material:1.3.0-alpha01'
+
+
+    implementation 'androidx.appcompat:appcompat:1.3.0-alpha01'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.navigation:navigation-fragment:2.3.0'
+
+    implementation "androidx.appcompat:appcompat-resources:1.3.0-alpha01"
+    implementation "androidx.fragment:fragment-ktx:1.3.0-alpha06"
+    implementation "androidx.activity:activity-ktx:1.2.0-alpha06"
+
+    implementation "androidx.viewpager2:viewpager2:1.1.0-alpha01"
+
+    implementation 'com.google.dagger:hilt-android:2.28-alpha'
+    kapt 'com.google.dagger:hilt-android-compiler:2.28-alpha'
+    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha01'
+    kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha01'
+
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+//    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
+
+
+    implementation "androidx.work:work-runtime-ktx:2.4.0-rc01"
+
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-alpha04"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.0-alpha04"
+
     implementation 'androidx.navigation:navigation-ui:2.3.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
@@ -78,4 +114,8 @@ dependencies {
     implementation project(modulePrefix + 'library-dash')
     implementation 'androidx.annotation:annotation:' + androidxAnnotationVersion
 
+}
+
+kapt {
+    correctErrorTypes true
 }
