@@ -95,7 +95,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:21.4.3'
     implementation 'com.google.firebase:firebase-storage:19.1.1'
     implementation 'com.google.firebase:firebase-crashlytics:17.1.0'
-    implementation 'com.google.firebase:firebase-perf:19.0.7'
+//    implementation 'com.google.firebase:firebase-perf:19.0.7'
     implementation 'com.google.firebase:firebase-messaging:20.2.1'
     implementation 'com.google.firebase:firebase-config:19.1.4'
     implementation 'com.google.firebase:firebase-dynamic-links:19.1.0'
@@ -109,9 +109,11 @@ dependencies {
 
     implementation 'com.otaliastudios:transcoder:0.9.1'
 
-    implementation project(modulePrefix + 'library-core')
-    implementation project(modulePrefix + 'library-ui')
-    implementation project(modulePrefix + 'library-dash')
+    implementation 'com.google.android.exoplayer:exoplayer:2.10.4'
+
+//    implementation project(modulePrefix + 'library-core')
+//    implementation project(modulePrefix + 'library-ui')
+//    implementation project(modulePrefix + 'library-dash')
     implementation 'androidx.annotation:annotation:' + androidxAnnotationVersion
 
 }

@@ -61,7 +61,7 @@ class StoryViewFragment : Fragment(R.layout.fragment_story_view) {
         text_view_music_title.isSelected = true
 
         val simplePlayer = getPlayer()
-        player_view_story.player = simplePlayer
+        player_view_story.player = simplePlayer!!
 
         storyUrl = storiesDataModel?.storyUrl
         storyUrl?.let { prepareMedia(it) }
